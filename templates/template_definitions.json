@@ -1,0 +1,33 @@
+{
+  "product_page": {
+    "title": "{{product_name}} - Product Page",
+    "sections": [
+      {
+        "id": "quick_facts",
+        "block": "quick_facts_block"
+      },
+      {
+        "id": "benefits",
+        "block": "generate_benefits_block"
+      },
+      {
+        "id": "how_to_use",
+        "block": "extract_usage_block"
+      },
+      {
+        "id": "safety",
+        "block": "safety_block"
+      },
+      {
+        "id": "price",
+        "block": "price_block"
+      }
+    ]
+  },
+  "faq_page": {
+    "title": "{{product_name}} - FAQ",
+    "blocks": [
+      "generate_faq_block"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "lhs": "GlowBoost Vitamin C Serum",
+  "rhs": "RadiantC Booster",
+  "comparison": [
+    {
+      "aspect": "price",
+      "lhs": "₹699",
+      "rhs": "₹799",
+      "cheaper": "lhs"
+    },
+    {
+      "aspect": "ingredients_overlap",
+      "common": [
+        "Vitamin C"
+      ]
+    },
+    {
+      "aspect": "concentration",
+      "lhs": "10% Vitamin C",
+      "rhs": "12% Vitamin C"
+    },
+    {
+      "aspect": "summary",
+      "verdict": "GlowBoost is better priced based on listed price."
+    }
+  ]
+}
