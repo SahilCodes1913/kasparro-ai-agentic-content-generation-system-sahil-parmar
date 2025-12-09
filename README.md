@@ -1,59 +1,74 @@
-Kasparro Applied AI – Agentic Content Generation System
+# **Kasparro Applied AI – Agentic Content Generation System**  
+**Author:** *Sahil Parmar*  
 
-Author: Sahil Parmar
+---
 
-🎯 Overview
+## 📌 **Overview**
+This project implements a **multi-agent, modular, content-generation system** that transforms a single product dataset into:
 
-This project implements a multi-agent content generation system that processes a single product dataset and generates:
+- `faq.json` → Structured, categorized FAQs  
+- `product_page.json` → Machine-readable product page  
+- `comparison_page.json` → Comparison with a fictional Product B  
 
-faq.json → Machine-readable structured FAQs
+The system follows the **Kasparro Applied AI engineering challenge** guidelines:
+- No external data used  
+- Strong agent boundaries  
+- Template-driven content generation  
+- Structured JSON outputs  
 
-product_page.json → Structured product page with reusable blocks
+---
 
-comparison_page.json → Comparison against a fictional Product B
+## 🧠 **System Architecture**
 
-The system demonstrates modular engineering, template-driven content generation, and clean agent boundaries — exactly as required in the Applied AI challenge.
+### 🔹 **Agents & Responsibilities**
+| **Agent** | **Role** |
+|-----------|----------|
+| **ParserAgent** | Loads & normalizes product data from `data/product.json` |
+| **QuestionGeneratorAgent** | Generates ≥15 categorized Q&A using product fields |
+| **TemplateEngine** | Applies templates + reusable blocks to build pages |
+| **CompareAgent** | Compares GlowBoost with a fictional Product B |
 
-🧩 System Architecture
-Agents Used
-Agent	Responsibility
-ParserAgent	Reads & normalizes data/product.json
-QuestionGeneratorAgent	Produces categorized Q&A (≥15 questions)
-TemplateEngine	Builds structured pages from templates + blocks
-CompareAgent	Compares GlowBoost with a fictional Product B
-Content Blocks
+---
 
-quick_facts_block
+### 🔹 **Reusable Content Blocks**
+The system includes independent logic blocks such as:
 
-generate_benefits_block
+- `quick_facts_block`
+- `generate_benefits_block`
+- `extract_usage_block`
+- `safety_block`
+- `price_block`
+- `generate_faq_block`
 
-extract_usage_block
+Blocks ensure **separation of concerns**, **maintainability**, and **reusability**.
 
-safety_block
+---
 
-price_block
+## 📂 **Project Structure**
+kasparro-ai-agentic-content-generation-system-sahil-parmar/
+│
+├── agents/
+├── blocks/
+├── data/
+├── templates/
+├── tests/
+├── docs/
+├── output/
+│
+├── orchestrator.py
+└── README.md
 
-generate_faq_block
+yaml
+Copy code
 
-These ensure reusability and separation of concerns.
+---
 
-📂 Project Structure
-agents/
-blocks/
-data/
-templates/
-output/
-tests/
-docs/
-orchestrator.py
-README.md
+## 🚀 **How to Run the System**
 
-🚀 How to Run
-1) Run the orchestration pipeline
+### ▶️ **1. Run the main pipeline**
+```bash
 python orchestrator.py
-
-
-This generates:
+This will generate:
 
 output/faq.json
 
@@ -61,36 +76,38 @@ output/product_page.json
 
 output/comparison_page.json
 
-2) Run Tests
+### ▶️ **2. Run Tests**
+bash
+Copy code
 python -m pytest -q
+All tests should pass successfully.
 
-
-All tests should pass.
-
-📝 Templates
-
+📝 **Template System**
 Templates are defined in:
 
+bash
+Copy code
 templates/template_definitions.json
-
-
-Each section references a block, making the system extensible and easy to modify.
+Each template references blocks, for example:
+Quick facts block
+Benefits block
+Usage block
+Safety block
+Price block
+This makes the system extensible and easy to modify.
 
 📘 Documentation
+Detailed documentation for the system is available in:
 
-Full engineering documentation is inside:
-
+bash
+Copy code
 docs/projectdocumentation.md
-
-
 It includes:
 
-Problem statement
+Problem Statement
+Solution Overview
+Scopes & Assumptions
 
-Solution overview
+System Design Diagram
 
-Scopes & assumptions
-
-System design
-
-Agent boundaries
+Agent Responsibilities
