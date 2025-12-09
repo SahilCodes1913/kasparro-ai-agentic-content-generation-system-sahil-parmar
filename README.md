@@ -4,17 +4,19 @@
 ---
 
 ## 📌 **Overview**
-This project implements a **multi-agent, modular, content-generation system** that transforms a single product dataset into:
+This project implements a **multi-agent, modular content-generation system** designed for the **Kasparro Applied AI Challenge**.  
+The system transforms a single product dataset into structured, machine-readable JSON outputs:
 
-- `faq.json` → Structured, categorized FAQs  
-- `product_page.json` → Machine-readable product page  
+- `faq.json` → Categorized FAQs  
+- `product_page.json` → Product page with reusable blocks  
 - `comparison_page.json` → Comparison with a fictional Product B  
 
-The system follows the **Kasparro Applied AI engineering challenge** guidelines:
-- No external data used  
+This system demonstrates:
 - Strong agent boundaries  
-- Template-driven content generation  
-- Structured JSON outputs  
+- Template-driven generation  
+- Reusable content blocks  
+- Clean JSON output formatting  
+- No use of external knowledge  
 
 ---
 
@@ -24,14 +26,14 @@ The system follows the **Kasparro Applied AI engineering challenge** guidelines:
 | **Agent** | **Role** |
 |-----------|----------|
 | **ParserAgent** | Loads & normalizes product data from `data/product.json` |
-| **QuestionGeneratorAgent** | Generates ≥15 categorized Q&A using product fields |
-| **TemplateEngine** | Applies templates + reusable blocks to build pages |
+| **QuestionGeneratorAgent** | Generates ≥15 categorized Q&A items |
+| **TemplateEngine** | Uses templates + blocks to build product & FAQ pages |
 | **CompareAgent** | Compares GlowBoost with a fictional Product B |
 
 ---
 
-### 🔹 **Reusable Content Blocks**
-The system includes independent logic blocks such as:
+## 🔹 **Reusable Content Blocks**
+The system includes reusable logic blocks such as:
 
 - `quick_facts_block`
 - `generate_benefits_block`
@@ -40,74 +42,46 @@ The system includes independent logic blocks such as:
 - `price_block`
 - `generate_faq_block`
 
-Blocks ensure **separation of concerns**, **maintainability**, and **reusability**.
+Blocks help maintain **separation of concerns**, **scalability**, and **clean logic flow**.
 
 ---
 
 ## 📂 **Project Structure**
+
+```text
 kasparro-ai-agentic-content-generation-system-sahil-parmar/
 │
 ├── agents/
+│   ├── parser_agent.py
+│   ├── question_generator_agent.py
+│   ├── template_engine.py
+│   └── compare_agent.py
+│
 ├── blocks/
+│   ├── quick_facts_block.py
+│   ├── generate_benefits_block.py
+│   ├── extract_usage_block.py
+│   ├── safety_block.py
+│   ├── price_block.py
+│   └── generate_faq_block.py
+│
 ├── data/
+│   └── product.json
+│
 ├── templates/
+│   └── template_definitions.json
+│
 ├── tests/
+│   ├── test_parser.py
+│   └── test_template.py
+│
 ├── docs/
+│   └── projectdocumentation.md
+│
 ├── output/
+│   ├── faq.json
+│   ├── product_page.json
+│   └── comparison_page.json
 │
 ├── orchestrator.py
 └── README.md
-
-yaml
-Copy code
-
----
-
-## 🚀 **How to Run the System**
-
-### ▶️ **1. Run the main pipeline**
-```bash
-python orchestrator.py
-This will generate:
-
-output/faq.json
-
-output/product_page.json
-
-output/comparison_page.json
-
-### ▶️ **2. Run Tests**
-bash
-Copy code
-python -m pytest -q
-All tests should pass successfully.
-
-📝 **Template System**
-Templates are defined in:
-
-bash
-Copy code
-templates/template_definitions.json
-Each template references blocks, for example:
-Quick facts block
-Benefits block
-Usage block
-Safety block
-Price block
-This makes the system extensible and easy to modify.
-
-📘 Documentation
-Detailed documentation for the system is available in:
-
-bash
-Copy code
-docs/projectdocumentation.md
-It includes:
-
-Problem Statement
-Solution Overview
-Scopes & Assumptions
-
-System Design Diagram
-
-Agent Responsibilities
